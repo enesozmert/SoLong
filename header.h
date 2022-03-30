@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "minilibx/mlx.h"
 
 typedef struct	s_data
 {
@@ -31,5 +32,9 @@ enum {
 
 unsigned long rgb_hex(int r, int g, int b);
 int	close(int keycode, t_wlx *wlx);
+int	key_up(int keycode, t_wlx *wlx);
+int	key_down(int keycode, t_wlx *wlx);
+int	key_left(int keycode, t_wlx *wlx);
+int	key_right(int keycode, t_wlx *wlx);
 
 #endif

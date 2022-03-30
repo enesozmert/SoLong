@@ -16,7 +16,7 @@ AR			=	ar rcs
 
 FTPRINT		=	main.c
 
-FTSTR		=	rgb_hex.c
+FTSTR		=	rgb_hex.c exit.c move_key.c
 
 #FileCreate
 
