@@ -1,6 +1,6 @@
 #include "header.h"
 
-int	close(int key_code, t_wlx *wlx)
+int	game_exit(int key_code, t_wlx *wlx)
 {
 	if (key_code == 53)
 	{

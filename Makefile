@@ -1,5 +1,6 @@
 CC          =   gcc
 MINILIBX    =   minilibx/libmlx.a
+LIBFT		=	include/libft/libft.a
 LFLAGS      =   -framework OpenGL -framework AppKit -L./minilibx -lmlx
 CFLAGS      =   -I./include -I./libft -I./minilibx
 NAME        =   so_long
@@ -30,15 +31,15 @@ all:			$(NAME)
 
 %.o:%.c 
 			@echo Compiling:
-			@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-			@echo Compiling Success file is : $< $(SRC_DIR) $@ 
+			@$(CC) $(CFLAGS) -c $< -o $@
+			@echo Compiling Success file is : $< $(SRC_FILES) $@ 
 
 norm:
-			@norminette $(SRC) $(INCLUDES) | grep -v Norme -B1 || true
+			@norminette $(SRC) | grep -v Norme -B1 || true
 			@echo Norminatte exception
 
 build:
-			@gcc -Wall -Wextra -Werror $(LFLAGS) $(OBJS) *.c
+			@gcc -Wall -Wextra -Werror $(LIBFT) $(LFLAGS) $(OBJS) *.c
 			@echo Build ok
 
 $(NAME):	$(OBJ)

@@ -1,5 +1,8 @@
 {
 	"files.associations": {
-		"mlx.h": "c"
+		"mlx.h": "c",
+		"header.h": "c",
+		"*.a": "c",
+		"get_next_line_bonus.h": "c"
 	}
 }
