@@ -17,7 +17,7 @@ AR			=	ar rcs
 
 FTPRINT		=	main.c
 
-FTSTR		=	rgb_hex.c exit.c move_key.c
+FTSTR		=	rgb_hex.c game_exit.c move_key.c put_image.c get_next_line.c character_move.c load.c
 
 #FileCreate
 
@@ -39,7 +39,7 @@ norm:
 			@echo Norminatte exception
 
 build:
-			@gcc -Wall -Wextra -Werror $(LIBFT) $(LFLAGS) $(OBJS) *.c
+			@gcc $(CFLAGS) $(LIBFT) $(LFLAGS) $(OBJS) *.c
 			@echo Build ok
 
 $(NAME):	$(OBJ)

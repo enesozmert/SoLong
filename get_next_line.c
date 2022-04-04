@@ -5,12 +5,14 @@ void *myfree(void *str)
     free(str);
     return (NULL);
 }
+
 char *get_next_line(int fd)
 {
     char buffer;
     char *line;
     int rd_byte;
     int i;
+
     rd_byte = 1;
     i = 0;
     line = (char *)malloc(sizeof(char) * 9999);

@@ -4,6 +4,7 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "include/libft/libft.h"
 #include "minilibx/mlx.h"
 
@@ -63,7 +64,7 @@ enum {
 };
 
 unsigned long rgb_hex(int r, int g, int b);
-char *put_image(t_image image);
+void *put_image(t_image image);
 void create_map(t_wlx wlx, t_platform platform);
 t_block set_block(char name);
 int	game_exit(int keycode, t_wlx *wlx);
@@ -73,5 +74,6 @@ int	key_left(int keycode, t_wlx *wlx);
 int	key_right(int keycode, t_wlx *wlx);
 char *get_next_line(int fd);
 void *myfree(void *str);
+void line_by_line(char *area, t_wlx wlx, int *i);
 
 #endif
