@@ -3,14 +3,15 @@
 t_block set_block(char name)
 {
 	t_block maps[6];
-	maps[0] = (t_block){"1", "./icons/maps/paving.xpm"};
-	maps[1] = (t_block){"0", "./icons/maps/dance.xpm"};
-	maps[2] = (t_block){"C", "./icons/maps/paving2.xpm"};
-	maps[3] = (t_block){"P", "./icons/character/shuttle.xpm"};
-	maps[4] = (t_block){"E", "./icons/maps/paving.xpm"};
+	int i;
+
+	maps[0] = (t_block){"1", "./icons/maps/paving/paving2.xpm"};
+	maps[1] = (t_block){"0", "./icons/maps/black/star.xpm"};
+	maps[2] = (t_block){"C", "./icons/maps/paving/block.xpm"};
+	maps[3] = (t_block){"P", "./icons/character/rocket.xpm"};
+	maps[4] = (t_block){"E", "./icons/maps/paving/elevator1.xpm"};
 	maps[5] = (t_block){NULL, NULL};
 
-	int i;
 	i = 0;
 	while (maps[i].name != NULL)
 	{
@@ -24,7 +25,7 @@ t_block set_block(char name)
 	return (maps[0]);
 }
 
-void line_by_line(char *area, t_wlx wlx, int *i)
+void create_line(char *area, t_wlx wlx, int *i)
 {
 	int		j;
 	t_block map;
@@ -35,8 +36,8 @@ void line_by_line(char *area, t_wlx wlx, int *i)
 	while (area[j])
 	{
 		map = set_block(area[j]);
-		image.x = j * 32;
-		image.y = *i * 32;
+		image.x = j * BLOCK_SIZE;
+		image.y = *i * BLOCK_SIZE;
 		image.relative_path = map.relative_path;
 		put_image(image);
 		j++;
