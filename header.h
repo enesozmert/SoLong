@@ -51,6 +51,22 @@ typedef struct s_image
 	int img_width;
 }	t_image;
 
+typedef struct s_player
+{
+	int x;
+	int y;
+	struct s_wlx wlx;
+	char *relative_path;
+	char *name;
+} t_player;
+
+typedef struct s_key_control
+{
+	char	*name;
+	int		key_code;
+	int		(*f)(int);
+} t_key_control;
+
 
 
 enum {
@@ -63,17 +79,24 @@ enum {
 	ON_DESTROY = 17,
 };
 
-unsigned long rgb_hex(int r, int g, int b);
-void *put_image(t_image image);
-void create_map(t_wlx wlx, t_platform platform);
-t_block set_block(char name);
-int	game_exit(int keycode, t_wlx *wlx);
-int	key_up(int keycode, t_wlx *wlx);
-int	key_down(int keycode, t_wlx *wlx);
-int	key_left(int keycode, t_wlx *wlx);
-int	key_right(int keycode, t_wlx *wlx);
-char *get_next_line(int fd);
-void *myfree(void *str);
-void line_by_line(char *area, t_wlx wlx, int *i);
+#ifndef BLOCK_SIZE
+#define BLOCK_SIZE 64
+#endif
 
+unsigned long	rgb_hex(int r, int g, int b);
+void			*put_image(t_image image);
+void			create_map(t_wlx wlx, t_platform platform);
+t_block			set_block(char name);
+int				game_exit(int keycode, t_wlx *wlx);
+int				key_hook(int keycode, t_wlx *wlx);
+char			*get_next_line(int fd);
+void			*myfree(void *str);
+void			create_line(char *area, t_wlx wlx, int *i);
+int key_up(__attribute__((unused))int booleaner);
+int key_down(__attribute__((unused))int booleaner);
+int key_left(__attribute__((unused))int booleaner);
+int key_right(__attribute__((unused))int booleaner);
+
+//static
+t_block *block_array();
 #endif

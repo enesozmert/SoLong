@@ -17,7 +17,7 @@ AR			=	ar rcs
 
 FTPRINT		=	main.c
 
-FTSTR		=	rgb_hex.c game_exit.c move_key.c put_image.c get_next_line.c character_move.c load.c
+FTSTR		=	rgb_hex.c game_exit.c key_move.c put_image.c get_next_line.c player_move.c load.c map.c
 
 #FileCreate
 
