@@ -16,34 +16,46 @@ int	key_hook(int keycode, t_wlx *wlx)
 	{
 		if (key_control[i].key_code == keycode)
 		{
-			//printf("%s\n", key_control[i].name);
-			key_control[i].f(1);
+			key_control[i].f(wlx);
 		}
-		else
-			key_control[i].f(0);
 		i++;
 	}
 	return (0);
 }
 
-int key_up(__attribute__((unused))int booleaner)
+int key_up(t_wlx *wlx)
 {
-	return (booleaner);
+	printf("%s\n", "w");
+	static int left = 0;
+	left += 32;
+	t_image image;
+	image.x = left;
+	image.y = 0;
+	image.wlx = *wlx;
+	image.relative_path = "./icons/maps/black/black.xpm";
+	put_image(image);
+	return (0);
 }
 
-int key_down(__attribute__((unused))int booleaner)
+int key_down(t_wlx *wlx)
 {
-	return (booleaner);
+	(void)wlx;
+	printf("%s\n", "s");
+	return (0);
 }
 
-int key_left(__attribute__((unused))int booleaner)
+int key_left(t_wlx *wlx)
 {
-	return (booleaner);
+	(void)wlx;
+	printf("%s\n", "a");
+	return (0);
 }
 
-int key_right(__attribute__((unused))int booleaner)
+int key_right(t_wlx *wlx)
 {
-	return (booleaner);
+	(void)wlx;
+	printf("%s\n", "d");
+	return (0);
 }
 
 //13 up 0left 1down 2right

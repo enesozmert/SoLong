@@ -25,12 +25,12 @@ typedef struct	s_wlx
 
 typedef struct s_platform
 {
-	// char	**map;
-	// int		pos_x;
-	// int		pos_y;
-	// int		chr_x;
-	// int		chr_y;
-	// int		multiple;
+	char	**map;
+	int		pos_x;
+	int		pos_y;
+	int		height;
+	int		width;
+	int		multiple;
 	char	*path;
 }	t_platform;
 
@@ -56,6 +56,7 @@ typedef struct s_player
 	int x;
 	int y;
 	struct s_wlx wlx;
+	struct s_image image;
 	char *relative_path;
 	char *name;
 } t_player;
@@ -64,7 +65,7 @@ typedef struct s_key_control
 {
 	char	*name;
 	int		key_code;
-	int		(*f)(int);
+	int		(*f)(t_wlx *);
 } t_key_control;
 
 
@@ -88,14 +89,17 @@ void			*put_image(t_image image);
 void			create_map(t_wlx wlx, t_platform platform);
 t_block			set_block(char name);
 int				game_exit(int keycode, t_wlx *wlx);
-int				key_hook(int keycode, t_wlx *wlx);
 char			*get_next_line(int fd);
 void			*myfree(void *str);
-void			create_line(char *area, t_wlx wlx, int *i);
-int key_up(__attribute__((unused))int booleaner);
-int key_down(__attribute__((unused))int booleaner);
-int key_left(__attribute__((unused))int booleaner);
-int key_right(__attribute__((unused))int booleaner);
+void			create_map_line(char *area, t_wlx wlx, int *i);
+
+//key_hook
+
+int				key_up(t_wlx *wlx);
+int				key_down(t_wlx *wlx);
+int				key_left(t_wlx *wlx);
+int				key_right(t_wlx *wlx);
+int				key_hook(int keycode, t_wlx *wlx);
 
 //static
 t_block *block_array();

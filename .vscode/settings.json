@@ -4,6 +4,8 @@
 		"header.h": "c",
 		"*.a": "c",
 		"get_next_line_bonus.h": "c",
-		"sstream": "c"
+		"sstream": "c",
+		"istream": "c",
+		"locale": "c"
 	}
 }
