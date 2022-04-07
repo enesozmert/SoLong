@@ -63,6 +63,17 @@ void create_map(t_wlx wlx, t_platform platform)
 	}
 }
 
+void create_map_matris()
+{
+	int i;
+	int j;
+
+	while ()
+	{
+		
+	}
+}
+
 // t_platform map_size(t_platform platform)
 // {
 // 	int			fd;

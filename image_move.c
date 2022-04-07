@@ -1,36 +1,33 @@
 #include "header.h"
 
-int image_move_left(t_player player, t_platform platform)
+int image_move_left(t_game *game)
 {
-	static	int i = 0;
-	i++;
-	player.x -= i;
-	if (player.x < platform.width)
-		i = 0;
-	return (player.x);
+	game->player.x -= BLOCK_SIZE;
+	// if (game->player.x >= game->platform.width)
+	// 	game->player.x = game->platform.width / BLOCK_SIZE;
+	return (game->player.x);
 }
 
-void image_move_right(int x, t_platform platform)
+int image_move_right(t_game *game)
 {
-	static	int i = 0;
-	i++;
-	x -= i;
-	if (x < platform.width)
-		i = 0;
-	return (x);
+	game->player.x += BLOCK_SIZE;
+	// if (game->player.x <= 0)
+	// 	game->player.x = 0;
+	return (game->player.x);
 }
 
-void image_move_up()
+int image_move_up(t_game *game)
 {
-	static	int i = 0;
-	i++;
-	x -= i;
-	if (x < platform.width)
-		i = 0;
-	return (x);
+	game->player.y -= BLOCK_SIZE;
+	// if (game->player.y >= game->platform.height)
+	// 	game->player.y = game->platform.height / BLOCK_SIZE;
+	return (game->player.y);
 }
 
-void image_move_down()
+int image_move_down(t_game *game)
 {
-	
+	game->player.y += BLOCK_SIZE;
+	// if (game->player.y <= 0)
+	// 	game->player.y = game->platform.height / BLOCK_SIZE;
+	return (game->player.y);
 }

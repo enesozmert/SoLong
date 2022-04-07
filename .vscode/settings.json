@@ -6,6 +6,7 @@
 		"get_next_line_bonus.h": "c",
 		"sstream": "c",
 		"istream": "c",
-		"locale": "c"
+		"locale": "c",
+		"ios": "c"
 	}
 }

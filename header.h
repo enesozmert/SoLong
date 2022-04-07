@@ -15,13 +15,13 @@ typedef struct	s_data
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-}				t_data;
+}	t_data;
 
 typedef struct	s_wlx
 {
 	void	*mlx;
 	void	*win;
-}				t_wlx;
+}	t_wlx;
 
 typedef struct s_platform
 {
@@ -42,32 +42,41 @@ typedef struct s_block
 
 typedef struct s_image
 {
-	char	*relative_path;
-	struct s_wlx wlx;
-	void *img;
-	int	x;
-	int y;
-	int img_height;
-	int img_width;
+	char*				relative_path;
+	struct s_wlx		wlx;
+	void 				*img;
+	int					x;
+	int 				y;
+	int					img_height;
+	int					img_width;
 }	t_image;
 
 typedef struct s_player
 {
-	int x;
-	int y;
-	struct s_wlx wlx;
-	struct s_image image;
-	char *relative_path;
-	char *name;
+	int 			x;
+	int 			y;
+	int				pos;
+	struct s_wlx 	wlx;
+	struct s_image	image;
+	char			*relative_path;
+	char			*name;
 } t_player;
+
+typedef struct s_game
+{
+	struct s_wlx			wlx;
+	struct s_platform		platform;
+	struct s_block			block;
+	struct s_player			player;
+	struct s_key_control	*key_control;
+} t_game;
 
 typedef struct s_key_control
 {
 	char	*name;
 	int		key_code;
-	int		(*f)(t_wlx *);
+	int		(*f)(t_game *);
 } t_key_control;
-
 
 
 enum {
@@ -95,11 +104,16 @@ void			create_map_line(char *area, t_wlx wlx, int *i);
 
 //key_hook
 
-int				key_up(t_wlx *wlx);
-int				key_down(t_wlx *wlx);
-int				key_left(t_wlx *wlx);
-int				key_right(t_wlx *wlx);
-int				key_hook(int keycode, t_wlx *wlx);
+int				key_up(t_game *game);
+int				key_down(t_game *game);
+int				key_left(t_game *game);
+int				key_right(t_game *game);
+int				key_hook(int keycode, t_game *game);
+
+int				image_move_down(t_game *game);
+int 			image_move_up(t_game *game);
+int 			image_move_left(t_game *game);
+int 			image_move_right(t_game *game);
 
 //static
 t_block *block_array();
