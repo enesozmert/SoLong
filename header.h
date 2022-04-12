@@ -101,7 +101,7 @@ int				game_exit(int keycode, t_wlx *wlx);
 char			*get_next_line(int fd);
 void			*myfree(void *str);
 void			create_map_line(char *area, t_wlx wlx, int *i);
-
+char			**create_map_matris(t_platform platform);
 //key_hook
 
 int				key_up(t_game *game);

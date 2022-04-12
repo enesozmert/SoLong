@@ -25,52 +25,76 @@ int	key_hook(int keycode, t_game *game)
 int key_up(t_game *game)
 {
 	printf("%s\n", "w");
-	t_image image;
-	image.y = image_move_up(game);
-	image.x = game->player.x;
-	image.wlx = game->wlx;
-	image.relative_path = "./icons/character/rocket.xpm";
-	image.img = put_image(image);
-	mlx_destroy_image(game->wlx.mlx, image.img);
+	game->player.image.y = image_move_up(game);
+	game->player.image.x = game->player.x;
+	game->player.wlx = game->wlx;
+	game->player.relative_path = "./icons/character/rocket.xpm";
+	game->player.image.img = put_image(game->player.image);
+	mlx_destroy_image(game->wlx.mlx, game->player.image.img);
+	t_image image1;
+	image1.y = game->player.y + BLOCK_SIZE;
+	image1.x = game->player.x;
+	image1.wlx = game->wlx;
+	image1.relative_path = "./icons/maps/black/star1.xpm";
+	image1.img = put_image(image1);
+	mlx_destroy_image(game->wlx.mlx, image1.img);
 	return (0);
 }
 
 int key_down(t_game *game)
 {
 	printf("%s\n", "s");
-	t_image image;
-	image.y = image_move_down(game);
-	image.x = game->player.x;
-	image.wlx = game->wlx;
-	image.relative_path = "./icons/character/rocket.xpm";
-	image.img = put_image(image);
-	mlx_destroy_image(game->wlx.mlx, image.img);
+	game->player.image.y = image_move_down(game);
+	game->player.image.x = game->player.x;
+	game->player.wlx = game->wlx;
+	game->player.relative_path = "./icons/character/rocket.xpm";
+	game->player.image.img = put_image(game->player.image);
+	mlx_destroy_image(game->wlx.mlx, game->player.image.img);
+	t_image image1;
+	image1.y = game->player.y - BLOCK_SIZE;
+	image1.x = game->player.x;
+	image1.wlx = game->wlx;
+	image1.relative_path = "./icons/maps/black/star1.xpm";
+	image1.img = put_image(image1);
+	mlx_destroy_image(game->wlx.mlx, image1.img);
 	return (0);
 }
 
 int key_left(t_game *game)
 {
 	printf("%s\n", "a");
-	t_image image;
-	image.x = image_move_left(game);
-	image.y = game->player.y;
-	image.wlx = game->wlx;
-	image.relative_path = "./icons/character/rocket.xpm";
-	image.img = put_image(image);
-	mlx_destroy_image(game->wlx.mlx, image.img);
+	game->player.image.x = image_move_left(game);
+	game->player.image.y = game->player.y;
+	game->player.wlx = game->wlx;
+	game->player.relative_path = "./icons/character/rocket.xpm";
+	game->player.image.img = put_image(game->player.image);
+	mlx_destroy_image(game->wlx.mlx, game->player.image.img);
+	t_image image1;
+	image1.x = game->player.x + BLOCK_SIZE;
+	image1.y = game->player.y;
+	image1.wlx = game->wlx;
+	image1.relative_path = "./icons/maps/black/star1.xpm";
+	image1.img = put_image(image1);
+	mlx_destroy_image(game->wlx.mlx, image1.img);
 	return (0);
 }
 
 int key_right(t_game *game)
 {
 	printf("%s\n", "d");
-	t_image image;
-	image.x = image_move_right(game);
-	image.y = game->player.y;
-	image.wlx = game->wlx;
-	image.relative_path = "./icons/character/rocket.xpm";
-	image.img = put_image(image);
-	mlx_destroy_image(game->wlx.mlx, image.img);
+	game->player.image.x = image_move_right(game);
+	game->player.image.y = game->player.y;
+	game->player.wlx = game->wlx;
+	game->player.relative_path = "./icons/character/rocket.xpm";
+	game->player.image.img = put_image(game->player.image);
+	mlx_destroy_image(game->wlx.mlx, game->player.image.img);
+	t_image image1;
+	image1.x = game->player.x - BLOCK_SIZE;
+	image1.y = game->player.y;
+	image1.wlx = game->wlx;
+	image1.relative_path = "./icons/maps/black/star1.xpm";
+	image1.img = put_image(image1);
+	mlx_destroy_image(game->wlx.mlx, image1.img);
 	return (0);
 }
 

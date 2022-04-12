@@ -6,7 +6,7 @@ t_block set_block(char name)
 	int i;
 
 	maps[0] = (t_block){"1", "./icons/maps/paving/paving2.xpm"};
-	maps[1] = (t_block){"0", "./icons/maps/black/star.xpm"};
+	maps[1] = (t_block){"0", "./icons/maps/black/star1.xpm"};
 	maps[2] = (t_block){"C", "./icons/maps/paving/block.xpm"};
 	maps[3] = (t_block){"P", "./icons/character/rocket.xpm"};
 	maps[4] = (t_block){"E", "./icons/maps/paving/elevator1.xpm"};
@@ -63,15 +63,31 @@ void create_map(t_wlx wlx, t_platform platform)
 	}
 }
 
-void create_map_matris()
+char **create_map_matris(t_platform platform)
 {
-	int i;
-	int j;
+	int 	i;
+	int		j;
+	int		fd;
+	char 	*area;
 
-	while ()
+	fd = open(platform.path, O_RDONLY);
+	platform.map = malloc(sizeof(char) * 9999);
+	i = 0;
+	j = 0;
+	while (i < 1000)
 	{
-		
+		j = 0;
+		area = get_next_line(fd);
+		if (area == NULL)
+			break;
+		while (area[j] != '\0')
+		{
+			platform.map[i][j] = area[j];
+			j++;
+		}
+		i++;
 	}
+	return (platform.map);
 }
 
 // t_platform map_size(t_platform platform)

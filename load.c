@@ -16,6 +16,9 @@ int main()
 	game.player.image.wlx = wlx;
 	game.player.name = "player1";
 
+	//char **str = create_map_matris(game.platform);
+	//printf("%c",str[2][1]);
+
 	mlx_hook(wlx.win, ON_KEYDOWN, 1L<<0, game_exit, &wlx);
 	mlx_loop(wlx.mlx);
 }
