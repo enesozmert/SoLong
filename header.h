@@ -78,7 +78,6 @@ typedef struct s_key_control
 	int		(*f)(t_game *);
 } t_key_control;
 
-
 enum {
 	ON_KEYDOWN = 2,
 	ON_KEYUP = 3,
@@ -110,11 +109,21 @@ int				key_left(t_game *game);
 int				key_right(t_game *game);
 int				key_hook(int keycode, t_game *game);
 
-int				image_move_down(t_game *game);
-int 			image_move_up(t_game *game);
-int 			image_move_left(t_game *game);
-int 			image_move_right(t_game *game);
+int				player_move_down(t_game *game);
+int 			player_move_up(t_game *game);
+int 			player_move_left(t_game *game);
+int 			player_move_right(t_game *game);
+//fill
 
+void			fill_background_up(t_game *game);
+void			fill_background_down(t_game *game);
+void			fill_background_left(t_game *game);
+void			fill_background_right(t_game *game);
+int				*map_size(t_platform platform);
+int				map_line_count(t_platform platform);
+
+//player
+char			*player_perspective(t_game game);
 //static
 t_block *block_array();
 #endif

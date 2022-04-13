@@ -53,7 +53,7 @@ void create_map(t_wlx wlx, t_platform platform)
 
 	fd = open(platform.path, O_RDONLY);
 	i = 0;
-	while (i < 1000)
+	while (i < map_line_count(platform))
 	{
 		area = get_next_line(fd);
 		if (area == NULL)
@@ -67,42 +67,28 @@ char **create_map_matris(t_platform platform)
 {
 	int 	i;
 	int		j;
+	int 	k;
 	int		fd;
 	char 	*area;
 
 	fd = open(platform.path, O_RDONLY);
-	platform.map = malloc(sizeof(char) * 9999);
+	platform.map = (char **)malloc(sizeof(char *) * 999);
 	i = 0;
 	j = 0;
-	while (i < 1000)
+	k = 0;
+	while (i < map_line_count(platform))
 	{
 		j = 0;
 		area = get_next_line(fd);
+		platform.map[i] = (char *)malloc(sizeof(char) * 999);
 		if (area == NULL)
 			break;
 		while (area[j] != '\0')
 		{
-			platform.map[i][j] = area[j];
+			platform.map[i][j] = (char)area[j];
 			j++;
 		}
 		i++;
 	}
 	return (platform.map);
 }
-
-// t_platform map_size(t_platform platform)
-// {
-// 	int			fd;
-// 	char		*area;
-// 	int			i;
-
-// 	fd = open(platform.path, O_RDONLY);
-// 	i = 0;
-// 	while (i < 1000)
-// 	{
-// 		area = get_next_line(fd);
-// 		if (area == NULL)
-// 			break;
-// 		i++;
-// 	}
-// }
