@@ -1,6 +1,7 @@
-// #include "header.h"
+#include "header.h"
 
-// void map_error()
-// {
-// 	ft_putstr_fd("map exception rectangle : no", 1);	
-// }
+void map_error()
+{
+	printf("map exception rectangle : no");
+	exit(0);
+}

@@ -60,6 +60,7 @@ typedef struct s_player
 	struct s_image	image;
 	char			*relative_path;
 	char			*name;
+	char			*perspective;
 } t_player;
 
 typedef struct s_game
@@ -122,8 +123,12 @@ void			fill_background_right(t_game *game);
 int				*map_size(t_platform platform);
 int				map_line_count(t_platform platform);
 
+
 //player
 char			*player_perspective(t_game game);
 //static
 t_block *block_array();
+
+//error
+void map_error();
 #endif

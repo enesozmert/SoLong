@@ -22,9 +22,11 @@ char *get_next_line(int fd)
     while (rd_byte > 0)
     {
         rd_byte = read(fd, &buffer, 1);
-        if (rd_byte <= 0 || buffer == '\n')
+        if (rd_byte <= 0)
             break;
         line[i++] = buffer;
+        if (buffer == '\n')
+            break;
     }
     line[i] = '\0';
     if (!*line)

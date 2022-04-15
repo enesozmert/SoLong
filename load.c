@@ -11,10 +11,10 @@ int main()
 	
 	//platform
 	game.platform.path = "./maps/map_1.ber";
-	game.platform.height = map_size(game.platform)[0];
-	game.platform.width = map_size(game.platform)[1];
-
-	printf("h: %d,w: %d", game.platform.height, game.platform.width);
+	game.platform.width = map_size(game.platform)[0];
+	game.platform.height = map_size(game.platform)[1];
+	game.platform.map = create_map_matris(game.platform);
+	printf("w: %d,h: %d\n", game.platform.width, game.platform.height);
 
 	//create map
 	create_map(wlx, game.platform);
@@ -26,8 +26,24 @@ int main()
 	game.player.x = 9 * 64;
 	game.player.y = 4 * 64;
 
-	char *str = player_perspective(game);
-	printf("%s\n", str);
+	char **matris = create_map_matris(game.platform);
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	printf("\n");
+	while (matris[i])
+	{
+		j = 0;
+		while (matris[i][j])
+		{
+			printf("%c",matris[i][j]);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
 
 	mlx_key_hook(wlx.win, key_hook, &game);
 	mlx_hook(wlx.win, ON_KEYDOWN, 1L<<0, game_exit, &wlx);
