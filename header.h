@@ -114,6 +114,7 @@ int				player_move_down(t_game *game);
 int 			player_move_up(t_game *game);
 int 			player_move_left(t_game *game);
 int 			player_move_right(t_game *game);
+void			player_move_base(t_game *game);
 //fill
 
 void			fill_background_up(t_game *game);
@@ -126,6 +127,9 @@ int				map_line_count(t_platform platform);
 
 //player
 char			*player_perspective(t_game game);
+int				player_perspective_control(t_game game, int p_x, int p_y, char *perspective);
+void			player_move_area(t_game *game);
+void			player_move_wall(t_game *game);
 //static
 t_block *block_array();
 
