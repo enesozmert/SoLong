@@ -11,7 +11,7 @@ int main()
 	game.platform.height = map_size(game.platform)[1];
 
 	wlx.mlx = mlx_init();
-	wlx.win = mlx_new_window(wlx.mlx, 2600, 600, "Ecole 42 eozmert");
+	wlx.win = mlx_new_window(wlx.mlx, game.platform.width * BLOCK_SIZE, 600, "Ecole 42 eozmert");
 	game.wlx = wlx;
 
 	//platform matris
@@ -25,6 +25,8 @@ int main()
 	game.player.image.relative_path = "./icons/character/rocketu.xpm";
 	game.player.image.wlx = wlx;
 	game.player.name = "player1";
+	game.player.coin_size = get_block_count(&game.platform, 'C');
+	printf("coin count : %d", game.player.coin_size);
 	game.player.x = 1 * 64;
 	game.player.y = 4 * 64;
 	game.player.perspective = player_perspective(game);

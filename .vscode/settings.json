@@ -7,6 +7,7 @@
 		"sstream": "c",
 		"istream": "c",
 		"locale": "c",
-		"ios": "c"
+		"ios": "c",
+		"__locale": "c"
 	}
 }

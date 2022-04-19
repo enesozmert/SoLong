@@ -50,6 +50,7 @@ int player_move_down(t_game *game)
 
 void player_move_base(t_game *game)
 {
+	player_move_exit(game);
 	player_move_area(game);
 	player_move_coin(game);
 	player_move_count(game);
@@ -58,7 +59,6 @@ void player_move_base(t_game *game)
 	game->player.wlx = game->wlx;
 	game->player.image.img = put_image(game->player.image);
 	game->player.perspective = player_perspective(*game);
-	printf("path %s \n",game->player.relative_path);
 	printf("coin count :%d \n",game->player.coin_count);
 	printf("move count :%d \n",game->player.move_count);
 	//printf("%s\n", game->player.perspective);

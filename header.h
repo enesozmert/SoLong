@@ -57,6 +57,7 @@ typedef struct s_player
 	int 			y;
 	int				pos;
 	int				coin_count;
+	int				coin_size;
 	int				move_count;
 	struct s_wlx 	wlx;
 	struct s_image	image;
@@ -129,11 +130,16 @@ int				map_line_count(t_platform platform);
 
 //player
 char			*player_perspective(t_game game);
-//int			player_perspective_control(t_game game, int p_x, int p_y, char *perspective);
 void			player_move_area(t_game *game);
 int				player_move_wall(t_game *game);
 void			player_move_coin(t_game *game);
 void			player_move_count(t_game *game);
+void			player_move_exit(t_game *game);
+
+//locations
+int				*get_location(t_platform *platform, char block_name);
+int				get_block_count(t_platform *platform, char block_name);
+
 //static
 t_block *block_array();
 
