@@ -11,17 +11,34 @@ void player_move_area(t_game *game)
 	else if (game->player.y >= (game->platform.height - 2) * BLOCK_SIZE)
 		game->player.y = (game->platform.height - 2) * BLOCK_SIZE;
 }
-void player_move_wall(t_game *game)
+
+int player_move_wall(t_game *game)
 {
-	char *perspective;
-	
-	perspective = game->player.perspective;
-	// if (perspective[0] == game->player.x + 1 && perspective[0] != '\0')
-	// 	game->player.x -= 1;
-	// else if (perspective[1] == game->player.x - 1 && perspective[1] != '\0')
-	// 	game->player.x += 1;
-	// else if (perspective[2] == game->player.y - 1 && perspective[2] != '\0')
-	// 	game->player.y -= 1;
-	// else if (perspective[3] == game->player.y + 1 && perspective[3] != '\0')
-	// 	game->player.y += 1;
+	(void)game;
+	return (0);
+}
+
+void player_move_coin(t_game *game)
+{
+	int p_x;
+	int p_y;
+
+	p_x = game->player.x / BLOCK_SIZE;
+	p_y = game->player.y / BLOCK_SIZE;
+	if (game->platform.map[p_y][p_x] == 'C')
+	{
+		game->player.coin_count++;
+		game->platform.map[p_y][p_x] = '0';
+	}
+}
+
+void player_move_count(t_game *game)
+{
+	int p_x;
+	int p_y;
+
+	p_x = game->player.x / BLOCK_SIZE;
+	p_y = game->player.y / BLOCK_SIZE;
+	if (game->platform.map[p_y][p_x] != '1')
+		game->player.move_count++;
 }

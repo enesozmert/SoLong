@@ -27,7 +27,6 @@ int key_up(t_game *game)
 	//printf("%s\n", "w");
 	player_move_up(game);
 	mlx_destroy_image(game->wlx.mlx, game->player.image.img);
-	fill_background_up(game);
 	return (0);
 }
 
@@ -36,7 +35,6 @@ int key_down(t_game *game)
 	//printf("%s\n", "s");
 	player_move_down(game);
 	mlx_destroy_image(game->wlx.mlx, game->player.image.img);
-	fill_background_down(game);
 	return (0);
 }
 
@@ -45,7 +43,6 @@ int key_left(t_game *game)
 	//printf("%s\n", "a");
 	player_move_left(game);
 	mlx_destroy_image(game->wlx.mlx, game->player.image.img);
-	fill_background_left(game);
 	return (0);
 }
 
@@ -54,7 +51,6 @@ int key_right(t_game *game)
 	//printf("%s\n", "d");
 	player_move_right(game);
 	mlx_destroy_image(game->wlx.mlx, game->player.image.img);
-	fill_background_right(game);
 	return (0);
 }
 
