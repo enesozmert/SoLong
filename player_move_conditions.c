@@ -62,8 +62,9 @@ void player_move_exit(t_game *game)
 		image.wlx = game->wlx;
 		image.x = get_location(&game->platform, 'E')[0] * BLOCK_SIZE;
 		image.y = get_location(&game->platform, 'E')[1] * BLOCK_SIZE;
-		printf("exit location x : %d \n",get_location(&game->platform, 'E')[0] * BLOCK_SIZE);
-		printf("exit location y : %d \n",get_location(&game->platform, 'E')[1] * BLOCK_SIZE);
-		put_image(image);
+		// printf("exit location x : %d \n",get_location(&game->platform, 'E')[0] * BLOCK_SIZE);
+		// printf("exit location y : %d \n",get_location(&game->platform, 'E')[1] * BLOCK_SIZE);
+		image.img = put_image(image);
+		mlx_destroy_image(game->wlx.mlx, image.img);
 	}
 }
