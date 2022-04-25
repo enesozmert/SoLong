@@ -55,7 +55,7 @@ typedef struct s_player
 {
 	int 			x;
 	int 			y;
-	int				pos;
+	int				direction;
 	int				coin_count;
 	int				coin_size;
 	int				move_count;
@@ -118,12 +118,10 @@ int 			player_move_up(t_game *game);
 int 			player_move_left(t_game *game);
 int 			player_move_right(t_game *game);
 void			player_move_base(t_game *game);
+int				player_move(t_game *game, int x, int y);
 //fill
 
-void			fill_background_down(t_game *game);
-void			fill_background_up(t_game *game);
-void			fill_background_left(t_game *game);
-void			fill_background_right(t_game *game);
+void			fill_background_base(t_game *game, int x, int y);
 int				*map_size(t_platform platform);
 int				map_line_count(t_platform platform);
 
@@ -145,4 +143,9 @@ t_block *block_array();
 
 //error
 void map_error();
+
+//item_control
+int 			check_door(t_game *game);
+int				check_wall(t_game *game);
+int				check_total_item(t_game *game);
 #endif

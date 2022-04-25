@@ -11,7 +11,7 @@ int main()
 	game.platform.height = map_size(game.platform)[1];
 
 	wlx.mlx = mlx_init();
-	wlx.win = mlx_new_window(wlx.mlx, game.platform.width * BLOCK_SIZE, 600, "Ecole 42 eozmert");
+	wlx.win = mlx_new_window(wlx.mlx, (game.platform.width - 1) * BLOCK_SIZE, (game.platform.height - 1) * BLOCK_SIZE, "Ecole 42 eozmert");
 	game.wlx = wlx;
 
 	//platform matris

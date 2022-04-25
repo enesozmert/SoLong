@@ -14,9 +14,7 @@ int	key_hook(int keycode, t_game *game)
 	while (key_control[i].name != NULL)
 	{
 		if (key_control[i].key_code == keycode)
-		{
 			key_control[i].f(game);
-		}
 		i++;
 	}
 	return (0);
