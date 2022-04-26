@@ -22,32 +22,40 @@ int	key_hook(int keycode, t_game *game)
 
 int key_up(t_game *game)
 {
-	//printf("%s\n", "w");
-	player_move_up(game);
+	game->player.direction = 3;
+	if (check_total_item(game) == 1)
+		game->player.image.relative_path = "./icons/character/rocketu.xpm";
+	player_move(game, 0, BLOCK_SIZE);
 	mlx_destroy_image(game->wlx.mlx, game->player.image.img);
 	return (0);
 }
 
 int key_down(t_game *game)
 {
-	//printf("%s\n", "s");
-	player_move_down(game);
+	game->player.direction = 2;
+	if (check_total_item(game) == 1)
+		game->player.image.relative_path = "./icons/character/rocketd.xpm";
+	player_move(game, 0, -BLOCK_SIZE);
 	mlx_destroy_image(game->wlx.mlx, game->player.image.img);
 	return (0);
 }
 
 int key_left(t_game *game)
 {
-	//printf("%s\n", "a");
-	player_move_left(game);
+	game->player.direction = 1;
+	if (check_total_item(game) == 1)
+		game->player.image.relative_path = "./icons/character/rocketl.xpm";
+	player_move(game, BLOCK_SIZE, 0);
 	mlx_destroy_image(game->wlx.mlx, game->player.image.img);
 	return (0);
 }
 
 int key_right(t_game *game)
 {
-	//printf("%s\n", "d");
-	player_move_right(game);
+	game->player.direction = 0;
+	if (check_total_item(game) == 1)
+		game->player.image.relative_path = "./icons/character/rocketr.xpm";
+	player_move(game, -BLOCK_SIZE, 0);
 	mlx_destroy_image(game->wlx.mlx, game->player.image.img);
 	return (0);
 }

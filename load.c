@@ -1,12 +1,15 @@
 #include "header.h"
 
-int main()
+int main(int ac, char **av)
 {
 	t_wlx		wlx;
 	t_game		game;
 
 	//platform
-	game.platform.path = "./maps/map_1.ber";
+	ac = 0;
+	// if (ac != 2)
+	// 	return (0);
+	game.platform.path = av[1];
 	game.platform.width = map_size(game.platform)[0];
 	game.platform.height = map_size(game.platform)[1];
 
@@ -18,6 +21,9 @@ int main()
 	game.platform.map = create_map_matris(game.platform);
 	printf("w: %d,h: %d\n", game.platform.width, game.platform.height);
 
+	//exception handler
+	exception_handler(game.platform);
+
 	//create map
 	create_map(wlx, game.platform);
 
@@ -26,7 +32,7 @@ int main()
 	game.player.image.wlx = wlx;
 	game.player.name = "player1";
 	game.player.coin_size = get_block_count(&game.platform, 'C');
-	printf("coin count : %d", game.player.coin_size);
+	printf("coin count : %d\n", game.player.coin_size);
 	game.player.x = 1 * 64;
 	game.player.y = 4 * 64;
 	game.player.perspective = player_perspective(game);

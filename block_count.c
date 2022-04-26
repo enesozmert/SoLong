@@ -9,7 +9,7 @@ int get_block_count(t_platform *platform, char block_name)
 
 	i = 0;
 	j = 0;
-	result = 1;
+	result = 0;
 	while (platform->map[i])
 	{
 		j = 0;

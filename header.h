@@ -66,6 +66,14 @@ typedef struct s_player
 	char			*perspective;
 } t_player;
 
+typedef struct s_exception
+{
+	int				error_code;
+	char			*message;
+	int				(*f)(t_platform);
+} t_exception;
+
+
 typedef struct s_game
 {
 	struct s_wlx			wlx;
@@ -113,10 +121,6 @@ int				key_left(t_game *game);
 int				key_right(t_game *game);
 int				key_hook(int keycode, t_game *game);
 
-int				player_move_down(t_game *game);
-int 			player_move_up(t_game *game);
-int 			player_move_left(t_game *game);
-int 			player_move_right(t_game *game);
 void			player_move_base(t_game *game);
 int				player_move(t_game *game, int x, int y);
 //fill
@@ -141,8 +145,13 @@ int				get_block_count(t_platform *platform, char block_name);
 //static
 t_block *block_array();
 
-//error
-void map_error();
+//exception handler
+void 			exception_handler(t_platform platform);
+int 			map_error(t_platform platform);
+int				item_repeat_error(t_platform platform);
+int				item_single_error(t_platform platform);
+int				item_wrong_error(t_platform platform);
+int				file_name_error(t_platform platform);
 
 //item_control
 int 			check_door(t_game *game);

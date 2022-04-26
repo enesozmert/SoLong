@@ -47,7 +47,6 @@ void player_move_exit(t_game *game)
 {
 	int p_x;
 	int p_y;
-	//t_image image;
 
 	p_x = game->player.x / BLOCK_SIZE;
 	p_y = game->player.y / BLOCK_SIZE;
@@ -56,13 +55,4 @@ void player_move_exit(t_game *game)
 		mlx_destroy_window(game->wlx.mlx, game->wlx.win);
 		exit (0);
 	}
-	// else if (game->platform.map[p_y][p_x] != 'E' && game->player.coin_count != game->player.coin_size)
-	// {
-	// 	image.relative_path = "./icons/maps/paving/elevator1.xpm";
-	// 	image.wlx = game->wlx;
-	// 	image.x = get_location(&game->platform, 'E')[0] * BLOCK_SIZE;
-	// 	image.y = get_location(&game->platform, 'E')[1] * BLOCK_SIZE;
-	// 	image.img = put_image(image);
-	// 	mlx_destroy_image(game->wlx.mlx, image.img);
-	// }
 }
