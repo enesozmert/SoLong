@@ -9,7 +9,7 @@ t_block set_block(char name)
 	maps[1] = (t_block){"0", "./icons/maps/black/star1.xpm"};
 	maps[2] = (t_block){"C", "./icons/maps/paving/block.xpm"};
 	maps[3] = (t_block){"P", "./icons/character/rocketu.xpm"};
-	maps[4] = (t_block){"E", "./icons/maps/paving/elevator1.xpm"};
+	maps[4] = (t_block){"E", "./icons/maps/paving/elevator.xpm"};
 	maps[5] = (t_block){"X", "./icons/character/enemy.xpm"};
 	maps[6] = (t_block){"none", "./icons/maps/black/black.xpm"};
 	maps[7] = (t_block){NULL, NULL};

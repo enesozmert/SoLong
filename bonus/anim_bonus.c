@@ -31,15 +31,15 @@ void	move_animation(t_game *game)
 	int				j;
 
 	i = 0;
-	while (i < game->platform.height)
+	while (i < game->platform.height - 2)
 	{
 		j = 0;
 		while (j < game->platform.width)
 		{
 			if (game->platform.map[i][j] == 'C')
 				animator_coin(game, j, i);
-			if (game->platform.map[i][j] == 'X')
-				move_2(game, j, i);
+			// if (game->platform.map[i][j] == 'X')
+			// 	move_2(game, j, i);
 			j++;
 		}
 		i++;

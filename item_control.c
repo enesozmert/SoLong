@@ -4,11 +4,12 @@ int check_door(t_game *game)
 {
 	if (game->player.perspective[game->player.direction] != 'E')
 		return (1);
-	else
+	else if (game->player.perspective[3] == 'E')
 	{
 		player_move_exit(game);
 		return (0);
 	}
+	return (0);
 }
 
 int check_wall(t_game *game)
