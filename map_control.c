@@ -57,31 +57,30 @@ int item_single_error(t_platform platform)
 
 int item_wrong_error(t_platform platform)
 {
-	//(void)platform;
-	char *singular_items;
+	(void)platform;
 	int i;
 	int j;
 
-	singular_items = malloc(sizeof(char) * 5);
-	singular_items = "ECP01";
 	j = 0;
 	i = 0;
-	while (platform.map[j])
+	while (platform.map[i])
 	{
-		i = 0;
-		while (singular_items[i])
+		j = 0;
+		while (platform.map[i][j])
 		{
-			if (strchr(platform.map[j],singular_items[i]) == 0)
+			if (!strchr("1PCE0X\n",platform.map[i][j]))
 				return (102);
-			i++;
+			j++;
 		}
-		j++;
+		i++;
 	}
 	return (0);
 }
 
-int file_name_error(t_platform platform)
+int file_error(t_platform platform)
 {
+	if (platform.fd < 0)
+		return (504);
 	if (strnstr(&platform.path[1], ".ber", strlen(&platform.path[1])) == NULL)
 		return (502);
 	return (0);

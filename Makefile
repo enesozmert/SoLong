@@ -11,22 +11,34 @@ RM			=	rm -f
 AR			=	ar rcs
 #Definition
 
-
-
 #Directory
+BONUS_DIR	=	bonus/
 
-FTPRINT		=	main.c
+#Files
 
-FTSTR		=	rgb_hex.c game_exit.c key_move.c put_image.c get_next_line.c player_move.c load.c map.c exception_handler.c \
-				exception_handler.c
+GBONUS		=	anim_bonus load_bonus enemy_move_bonus
+
+MCOMMON		=	load
+
+GCOMMON		= 	rgb_hex game_exit key_move put_image get_next_line player_move \
+				map exception_handler block_count fill_background \
+				item_control locations map_size map_control \
+				player_move_conditions player_perspective
 
 #FileCreate
 
-SRC_FILES+=$(FTPRINT)
-SRC_FILES+=$(FTSTR)
+SRC_FILES_B 	 = $(addprefix $(BONUS_DIR), $(GBONUS))
+SRC_FILES   	 = $(GCOMMON)
+SRC_FILES_M   	 = $(MCOMMON)
 
-SRC 		= 	$(addsuffix .c, $(SRC_FILES))
-OBJ 		= 	$(addsuffix .o, $(SRC_FILES))
+SRC 		= 	$(addsuffix .c, $(SRC_FILES_M))
+OBJ 		= 	$(addsuffix .o, $(SRC_FILES_M))
+
+SRC_B		= 	$(addsuffix .c, $(SRC_FILES_B))
+OBJ_B 		= 	$(addsuffix .o, $(SRC_FILES_B))
+
+SRC_M 		= 	$(addsuffix .c, $(SRC_FILES))
+OBJ_M 		= 	$(addsuffix .o, $(SRC_FILES))
 
 all:			$(NAME)
 
@@ -40,7 +52,11 @@ norm:
 			@echo Norminatte exception
 
 build:
-			@gcc $(CFLAGS) $(LIBFT) $(LFLAGS) $(OBJS) *.c
+			@gcc $(CFLAGS) $(LIBFT) $(LFLAGS) $(SRC) $(SRC_M)
+			@echo Build ok
+
+buildbonus:
+			@gcc $(CFLAGS) $(LIBFT) $(LFLAGS) $(SRC_M) $(SRC_B)
 			@echo Build ok
 
 $(NAME):	$(OBJ)

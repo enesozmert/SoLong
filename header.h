@@ -32,6 +32,7 @@ typedef struct s_platform
 	int		width;
 	int		multiple;
 	char	*path;
+	int		fd;
 }	t_platform;
 
 typedef struct s_block
@@ -66,6 +67,14 @@ typedef struct s_player
 	char			*perspective;
 } t_player;
 
+typedef struct s_enemy
+{
+	int 			x;
+	int 			y;
+	int 			enemy_index;
+	int 			enemy_speed;
+} t_enemy;
+
 typedef struct s_exception
 {
 	int				error_code;
@@ -81,6 +90,7 @@ typedef struct s_game
 	struct s_block			block;
 	struct s_player			player;
 	struct s_key_control	*key_control;
+	struct s_enemy			enemy;
 } t_game;
 
 typedef struct s_key_control
@@ -142,16 +152,32 @@ void			player_move_exit(t_game *game);
 int				*get_location(t_platform *platform, char block_name);
 int				get_block_count(t_platform *platform, char block_name);
 
-//static
-t_block *block_array();
+//main
+void			player_main(t_game *game);
+void			load_main(t_game *game, t_wlx *wlx);
+void 			control_main(t_game *game, char **av, int ac);
 
+//main_b
+void			player_main_b(t_game *game);
+void			load_main_b(t_game *game, t_wlx *wlx);
+void 			control_main_b(t_game *game, char **av, int ac);
+
+//anim_b
+int				animation(t_game *game);
+void			move_animation(t_game *game);
+void			animator_coin(t_game *game, int x, int y);
 //exception handler
 void 			exception_handler(t_platform platform);
 int 			map_error(t_platform platform);
 int				item_repeat_error(t_platform platform);
 int				item_single_error(t_platform platform);
 int				item_wrong_error(t_platform platform);
-int				file_name_error(t_platform platform);
+int				file_error(t_platform platform);
+
+//enemy_move
+void	update2(t_game *game, int x, int y);
+void	move_2(t_game *game, int x, int y);
+void	move_4(t_game *game, int x, int y);
 
 //item_control
 int 			check_door(t_game *game);

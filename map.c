@@ -2,7 +2,7 @@
 
 t_block set_block(char name)
 {
-	t_block maps[7];
+	t_block maps[8];
 	int i;
 
 	maps[0] = (t_block){"1", "./icons/maps/paving/paving2.xpm"};
@@ -10,8 +10,9 @@ t_block set_block(char name)
 	maps[2] = (t_block){"C", "./icons/maps/paving/block.xpm"};
 	maps[3] = (t_block){"P", "./icons/character/rocketu.xpm"};
 	maps[4] = (t_block){"E", "./icons/maps/paving/elevator1.xpm"};
-	maps[5] = (t_block){"none", "./icons/maps/black/black.xpm"};
-	maps[6] = (t_block){NULL, NULL};
+	maps[5] = (t_block){"X", "./icons/character/enemy.xpm"};
+	maps[6] = (t_block){"none", "./icons/maps/black/black.xpm"};
+	maps[7] = (t_block){NULL, NULL};
 
 	i = 0;
 	while (maps[i].name != NULL)
@@ -72,6 +73,8 @@ char **create_map_matris(t_platform platform)
 	char 	*area;
 
 	fd = open(platform.path, O_RDONLY);
+	if (fd < 0)
+		exit (0);
 	platform.map = (char **)malloc(sizeof(char *) * 9999);
 	i = 0;
 	j = 0;

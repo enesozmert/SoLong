@@ -1,6 +1,6 @@
-#include "header.h"
+#include "./../header.h"
 
-void player_main(t_game *game)
+void player_main_b(t_game *game)
 {
 	game->player.image.relative_path = "./icons/character/rocketu.xpm";
 	game->player.image.wlx = game->wlx;
@@ -13,7 +13,7 @@ void player_main(t_game *game)
 	game->player.perspective = player_perspective(*game);
 }
 
-void load_main(t_game *game, t_wlx *wlx)
+void load_main_b(t_game *game, t_wlx *wlx)
 {
 	int window_w;
 	int window_h;
@@ -27,7 +27,7 @@ void load_main(t_game *game, t_wlx *wlx)
 	
 }
 
-void control_main(t_game *game, char **av, int ac)
+void control_main_b(t_game *game, char **av, int ac)
 {
 
 	if (ac != 2)
@@ -45,13 +45,14 @@ int main(int ac, char **av)
 	t_wlx		wlx;
 	t_game		game;
 
-	control_main(&game, av, ac);
-	load_main(&game, &wlx);
+	control_main_b(&game, av, ac);
+	load_main_b(&game, &wlx);
 	exception_handler(game.platform);
 	create_map(wlx, game.platform);
-	player_main(&game);
+	player_main_b(&game);
 	mlx_key_hook(wlx.win, key_hook, &game);
 	mlx_hook(wlx.win, ON_DESTROY, 1L << 2, game_exit, &game);
 	mlx_hook(wlx.win, ON_KEYDOWN, 1L << 0, game_exit, &wlx);
+	mlx_loop_hook(game.wlx.mlx, animation, &game);
 	mlx_loop(wlx.mlx);
 }
