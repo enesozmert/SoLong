@@ -38,8 +38,8 @@ void	move_animation(t_game *game)
 		{
 			if (game->platform.map[i][j] == 'C')
 				animator_coin(game, j, i);
-			// if (game->platform.map[i][j] == 'X')
-			// 	move_2(game, j, i);
+			if (game->platform.map[i][j] == 'X')
+				move_2(game, j, i);
 			j++;
 		}
 		i++;

@@ -23,7 +23,7 @@ MCOMMON		=	load
 GCOMMON		= 	rgb_hex game_exit key_move put_image get_next_line player_move \
 				map exception_handler block_count fill_background \
 				item_control locations map_size map_control \
-				player_move_conditions player_perspective
+				player_move_conditions player_perspective ./bonus/print_screen_bonus
 
 #FileCreate
 
@@ -52,11 +52,11 @@ norm:
 			@echo Norminatte exception
 
 build:
-			@gcc $(CFLAGS) $(LIBFT) $(LFLAGS) $(SRC) $(SRC_M)
+			@gcc $(CFLAGS) $(LIBFT) $(LFLAGS) $(LIBFT) $(SRC) $(SRC_M) 
 			@echo Build ok
 
 buildbonus:
-			@gcc $(CFLAGS) $(LIBFT) $(LFLAGS) $(SRC_M) $(SRC_B)
+			@gcc $(CFLAGS) $(LIBFT) $(LFLAGS) $(LIBFT) $(SRC_M) $(SRC_B)
 			@echo Build ok
 
 $(NAME):	$(OBJ)

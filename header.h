@@ -179,6 +179,9 @@ void	update2(t_game *game, int x, int y);
 void	move_2(t_game *game, int x, int y);
 void	move_4(t_game *game, int x, int y);
 
+//screen_print_move_count
+void	print_map_string(t_game *game);
+
 //item_control
 int 			check_door(t_game *game);
 int				check_wall(t_game *game);

@@ -41,6 +41,7 @@ void player_move_count(t_game *game)
 	p_y = game->player.y / BLOCK_SIZE;
 	if (game->platform.map[p_y][p_x] != '1')
 		game->player.move_count++;
+	print_map_string(game);
 }
 
 void player_move_exit(t_game *game)

@@ -23,7 +23,7 @@ void	exception_handler(t_platform platform)
 	{
 		handle_code = exception[i].f(platform);
 		if (handle_code == exception[i].error_code)
-			exit(printf("Error %s\n", exception[i].message));
+			exit(printf("Error %s %d\n", exception[i].message,exception[i].error_code));
 		i++;
 	}
 }

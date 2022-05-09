@@ -18,14 +18,17 @@ void	move_2(t_game *game, int x, int y)
 	image.wlx = game->wlx;
 	image.relative_path = "./icons/character/enemy.xpm";
 	if (x * BLOCK_SIZE == game->player.x && y * BLOCK_SIZE == game->player.y)
-		printf("The dead cannot speak\n");
-	if (game->platform.map[y][x - 1] != '1')
 	{
-		update2(game, (x * BLOCK_SIZE), y * BLOCK_SIZE);
+		printf("The dead cannot speak\n");
+		exit(0);
+	}
+	if (game->platform.map[y][x - 1] == '0')
+	{
+		update2(game, x * BLOCK_SIZE, y * BLOCK_SIZE);
 		game->platform.map[y][x] = '0';
 		game->platform.map[y][x - 1] = 'X';
-		image.x = y * BLOCK_SIZE;
-		image.y = (x * BLOCK_SIZE) - BLOCK_SIZE;
+		image.x = (x * BLOCK_SIZE) - BLOCK_SIZE;
+		image.y = y * BLOCK_SIZE;
 		put_image(image);
 	}
 	else if (game->platform.map[y][x + 1] == '0')
@@ -38,13 +41,13 @@ void	move_4(t_game *game, int x, int y)
 
 	image.wlx = game->wlx;
 	image.relative_path = "./icons/character/enemy.xpm";
-	while (game->platform.map[y][x + 1] != '1')
+	while (game->platform.map[y][x + 1] == '0')
 	{
 		update2(game, (x * BLOCK_SIZE), y * BLOCK_SIZE);
 		game->platform.map[y][x] = '0';
 		game->platform.map[y][x + 1] = 'X';
-		image.x = y * BLOCK_SIZE;
-		image.y = (x * BLOCK_SIZE) + BLOCK_SIZE;
+		image.x = (x * BLOCK_SIZE) + BLOCK_SIZE;
+		image.y = y * BLOCK_SIZE;
 		put_image(image);
 		x++;
 	}	
