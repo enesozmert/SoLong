@@ -1,6 +1,6 @@
 #include "header.h"
 
-void fill_background_base(t_game *game, int x, int y)
+void	fill_background_base(t_game *game, int x, int y)
 {
 	t_image image1;
 	image1.x = game->player.x + x;

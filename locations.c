@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   locations.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eozmert <eozmert@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/09 16:16:18 by eozmert           #+#    #+#             */
+/*   Updated: 2022/05/09 16:17:17 by eozmert          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
-int *get_location(t_platform *platform, char block_name)
+int	*get_location(t_platform *platform, char block_name)
 {
-	int j;
-	int i;
-	int *location;
+	int	j;
+	int	i;
+	int	*location;
 
 	i = 0;
 	j = 0;

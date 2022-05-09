@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   key_move.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eozmert <eozmert@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/09 16:17:34 by eozmert           #+#    #+#             */
+/*   Updated: 2022/05/09 16:18:30 by eozmert          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 int	key_hook(int keycode, t_game *game)
 {
-	int i;
-	t_key_control key_control[5];
+	int				i;
+	t_key_control	key_control[5];
 
 	i = 0;
 	key_control[0] = (t_key_control){"W", 13, key_up};
@@ -20,7 +32,7 @@ int	key_hook(int keycode, t_game *game)
 	return (0);
 }
 
-int key_up(t_game *game)
+int	key_up(t_game *game)
 {
 	game->player.direction = 3;
 	if (check_total_item(game) == 1)
@@ -30,7 +42,7 @@ int key_up(t_game *game)
 	return (0);
 }
 
-int key_down(t_game *game)
+int	key_down(t_game *game)
 {
 	game->player.direction = 2;
 	if (check_total_item(game) == 1)
@@ -40,7 +52,7 @@ int key_down(t_game *game)
 	return (0);
 }
 
-int key_left(t_game *game)
+int	key_left(t_game *game)
 {
 	game->player.direction = 1;
 	if (check_total_item(game) == 1)
@@ -50,7 +62,7 @@ int key_left(t_game *game)
 	return (0);
 }
 
-int key_right(t_game *game)
+int	key_right(t_game *game)
 {
 	game->player.direction = 0;
 	if (check_total_item(game) == 1)
