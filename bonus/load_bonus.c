@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   load_bonus.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eozmert <eozmert@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/10 12:08:12 by eozmert           #+#    #+#             */
+/*   Updated: 2022/05/10 12:44:30 by eozmert          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./../header.h"
 
-void player_main_b(t_game *game)
+void	player_main_b(t_game *game)
 {
 	game->player.image.relative_path = "./icons/character/rocketu.xpm";
 	game->player.image.wlx = game->wlx;
@@ -13,34 +25,32 @@ void player_main_b(t_game *game)
 	game->player.perspective = player_perspective(*game);
 }
 
-void load_main_b(t_game *game, t_wlx *wlx)
+void	load_main_b(t_game *game, t_wlx *wlx)
 {
-	int window_w;
-	int window_h;
+	int	window_w;
+	int	window_h;
 
 	window_w = (game->platform.width - 1) * BLOCK_SIZE;
 	window_h = (game->platform.height - 1) * BLOCK_SIZE;
 	wlx->mlx = mlx_init();
-	wlx->win = mlx_new_window(wlx->mlx, window_w,window_h, "Ecole 42 eozmert");
+	wlx->win = mlx_new_window(wlx->mlx, window_w, window_h, "Ecole 42 eozmert");
 	game->wlx = *wlx;
 	game->platform.map = create_map_matris(game->platform);
-	
 }
 
-void control_main_b(t_game *game, char **av, int ac)
+void	control_main_b(t_game *game, char **av, int ac)
 {
-
 	if (ac != 2)
 		exit(printf("Error Arg Two Many\n"));
 	game->platform.path = av[1];
 	game->platform.fd = open(game->platform.path, O_RDONLY);
 	if (game->platform.fd < 0)
-		exit(printf("Error Map Not Found\n"));	
+		exit(printf("Error Map Not Found\n"));
 	game->platform.width = map_size(game->platform)[0];
 	game->platform.height = map_size(game->platform)[1];
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_wlx		wlx;
 	t_game		game;

@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_size.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eozmert <eozmert@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/10 11:58:54 by eozmert           #+#    #+#             */
+/*   Updated: 2022/05/10 12:00:16 by eozmert          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
-int *map_size(t_platform platform)
+int	*map_size(t_platform platform)
 {
-	char **map_matris;
-	int *size;
-	int w;
-	int h;
-	int start_w;
+	char	**map_matris;
+	int		*size;
+	int		w;
+	int		h;
+	int		start_w;
 
 	w = 0;
 	h = 0;
@@ -26,12 +38,12 @@ int *map_size(t_platform platform)
 	return (size);
 }
 
-int map_line_count(t_platform platform)
+int	map_line_count(t_platform platform)
 {
-	int i;
-	int fd;
-	int byte;
-	char area;
+	int		i;
+	int		fd;
+	int		byte;
+	char	area;
 
 	fd = open(platform.path, O_RDONLY);
 	i = 0;
@@ -40,7 +52,7 @@ int map_line_count(t_platform platform)
 	{
 		byte = read(fd, &area, 1);
 		if (area == '\0')
-			break;
+			break ;
 		if (area == '\n')
 			i++;
 	}

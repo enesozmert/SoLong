@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   player_perspective.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eozmert <eozmert@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/10 12:04:14 by eozmert           #+#    #+#             */
+/*   Updated: 2022/05/10 12:04:27 by eozmert          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
-char *player_perspective(t_game game)
+char	*player_perspective(t_game game)
 {
-	int p_x;
-	int p_y;
-	char *perspective;
+	int		p_x;
+	int		p_y;
+	char	*perspective;
 
 	p_x = (game.player.x + 1) / BLOCK_SIZE;
 	p_y = (game.player.y + 1) / BLOCK_SIZE;
