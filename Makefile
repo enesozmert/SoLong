@@ -62,15 +62,15 @@ buildbonus:
 $(NAME):	$(OBJ)
 			@$(AR) $(NAME) $(OBJ)
 			@ranlib $(NAME)
-			@echo Libft compiled!
+			@echo SoLong compiled!
 
 clean:
 			@$(RM) -rf $(OBJ)
-			@echo Libft objects files cleaned!
+			@echo SoLong objects files cleaned!
 
 fclean:		clean
 			@$(RM) -f $(NAME)
-			@echo Libft executable files cleaned!
+			@echo SoLong executable files cleaned!
 
 re:			fclean all
 			@echo Cleaned and rebuilt
